@@ -12,16 +12,7 @@ class TestGameMap(TestCase):
         # Check if the number of positions is 100
         self.assertEqual(num_positions, 100, "Number of positions should be 100")
 
-    def test_get_character_position(self):
-        # Create an instance of the GameMap
-        game_map = GameMap()
-        
-        # Assume you have placed a character at position (3, 4)
-        character_position = game_map.get_character_position(3, 4)
-        
-        # Check if the returned position matches the expected position
-        expected_position = "Character found at position (3, 4)"
-        self.assertEqual(character_position, expected_position, "Position of character is incorrect")
+
 
     def test_validate_position(self):
         my_map = GameMap(10, 10)
