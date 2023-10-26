@@ -1,9 +1,11 @@
 class GameMap:
 
-
+    default_w = 10
+    default_h = 10
     num_positions = 100
 
-    def __init__(self, width, height):
+
+    def __init__(self, width = 10, height = 10):
         self.width = width
         self.height = height
         self.position = (5, 5)

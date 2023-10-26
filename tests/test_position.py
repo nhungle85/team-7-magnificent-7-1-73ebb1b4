@@ -1,10 +1,23 @@
 from unittest import TestCase
-from levelup.controller import GameController
+from levelup.position import *
 
-# THIS IS AN EXAMPLE UNIT TEST. 
-# All the unit tests for the Game Controller should go here
-# Unit tests for other classes should be in their own .py files (like test_character.py)
-class TestGameController(TestCase):
-    def test_init(self):
-        testObj = GameController()
-        assert testObj.status != None
+
+
+class TestGetPosition(TestCase):
+    def test_valid_positions(self):
+        
+        actual = Position.getPosition(0, 0)
+        self.assertEqual((0, 0), actual)
+        self.assertEqual(Position.getPosition(5, 5), (5, 5))
+        self.assertEqual(Position.getPosition(9, 9), (9, 9))
+
+    def test_invalid_positions_x(self):
+        self.assertIsNone(Position.getPosition(-1, 5))
+        self.assertIsNone(Position.getPosition(10, 5))
+
+    def test_invalid_positions_y(self):
+        self.assertIsNone(Position.getPosition(5, -1))
+        self.assertIsNone(Position.getPosition(5, 10))
+
+    if __name__ == '__main__':
+        unittest.main()
