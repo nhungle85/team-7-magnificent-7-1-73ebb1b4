@@ -1,6 +1,10 @@
 import logging
 from dataclasses import dataclass
 from enum import Enum
+from levelup.character import Character
+from levelup.direction import Direction
+from levelup.gameMap import GameMap
+from levelup.position import Position
 
 
 DEFAULT_CHARACTER_NAME = "Character"
