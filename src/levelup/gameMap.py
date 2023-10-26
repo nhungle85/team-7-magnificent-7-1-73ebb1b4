@@ -10,11 +10,16 @@ class GameMap:
         self.height = height
         self.position = (5, 5)
 
-    def move(self, x, y):
+    #def get_character_position (self, x, y):
+    #    self.x_position
+
+    def validate_postion(self, x, y):
         if 0 <= x < self.width and 0 <= y < self.height:
-            self.position = (x, y)
+            return True
         else:
-            raise ValueError("Invalid move")
+            return False
+
+    
 
      
 

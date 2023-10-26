@@ -14,11 +14,6 @@ class TestCharacterInitWithName(TestCase):
        
         self.assertFalse(expected)
 
-    def test_valid_moves(self):
-        my_map = GameMap(10, 10)
-        # my_map.move(5, 5)
-        self.assertEqual(my_map.position, (5, 5))
-        # my_map.move(9, 9)
-        # self.assertEqual(my_map.position, (9, 9))
+
 
 
