@@ -28,6 +28,7 @@ class InvalidMoveException(Exception):
 
 class GameController:
 
+    character: Character
 
     status: GameStatus
 
@@ -41,9 +42,10 @@ class GameController:
     # TODO: Update this if it does not match your design (hint - it doesnt)
     def create_character(self, character_name: str) -> None:
         if character_name is not None and character_name != "":
-            self.status.character_name = character_name
+            self.character = Character(character_name)
         else:
-            self.status.character_name = DEFAULT_CHARACTER_NAME
+            self.character = Character(DEFAULT_CHARACTER_NAME)
+        self.status.character_name = self.character.name
 
     def move(self, direction: Direction) -> None:
         # TODO: Implement move - should call something on another class

@@ -9,3 +9,9 @@ class TestGameController(TestCase):
         testObj = GameController()
         assert testObj.status != None
         
+    def test_create_character_updates_status(self):
+        testobj = GameController()
+        arbitrary_name = "ARBITRARY"
+        testobj.create_character(arbitrary_name)
+        self.assertEqual(arbitrary_name, testobj.status.character_name)
+        self.assertIsNotNone(testobj.character)
