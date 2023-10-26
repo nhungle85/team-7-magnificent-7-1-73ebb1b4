@@ -1,19 +1,18 @@
 from unittest import TestCase
-from levelup.character import *
-from levelup.gameMap import *
-class TestCharacterInitWithName(TestCase):
+from levelup.character import Character
+from fake_map import FakeMap
+from levelup.controller import Direction
+
+class TestCharacter(TestCase):
+    ARBITRARY_NAME = "MyName"
+
     def test_init(self):
-        ARBITRARY_NAME = "MyName"
-        testobj = Character(ARBITRARY_NAME)
-        self.assertEqual(ARBITRARY_NAME, testobj.name)
+        testobj = Character(self.ARBITRARY_NAME)
+        self.assertEqual(self.ARBITRARY_NAME, testobj.name)
 
-  
-    def test_is_valid_name(self):
-        ARBITRARY_NAME = "MyName@"
-        expected = is_valid_name(ARBITRARY_NAME)
-       
-        self.assertFalse(expected)
-
-
-
-
+    def test_enter_map_sets_map_and_updates_position(self):
+        testobj = Character(self.ARBITRARY_NAME)
+        stubbed_map = FakeMap()
+        testobj.enter_map(stubbed_map)
+        self.assertEqual(stubbed_map, testobj.map)
+        self.assertEqual(testobj.current_position, stubbed_map.starting_position)

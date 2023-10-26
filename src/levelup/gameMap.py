@@ -1,20 +1,24 @@
+from levelup.position import Position
+from typing import Tuple
+from levelup.direction import Direction
 class GameMap:
 
-    default_w = 10
-    default_h = 10
-    num_positions = 100
+    starting_position = Position(0,0)
+    positions = []
+    size: Tuple[int, int] = (10, 10)
 
+    def __init__(self):
+        self.create_positions()
 
-    def __init__(self, width = 10, height = 10):
-        self.width = width
-        self.height = height
-        self.position = (5, 5)
-
-    def validate_postion(self, x, y):
-        if 0 <= x < self.width and 0 <= y < self.height:
-            return True
-        else:
-            return False
+    def create_positions(self) -> None:
+        temp_pos = []
+        for x in range(self.size[0]):
+            y_range = []
+            for y in range(self.size[1]):
+                new_pos = Position(x,y)
+                y_range.append(new_pos)
+            temp_pos.append(y_range)
+        self.positions = temp_pos
 
     
 

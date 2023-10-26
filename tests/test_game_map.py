@@ -2,6 +2,7 @@ from unittest import TestCase
 from levelup.gameMap import GameMap
 
 class TestGameMap(TestCase):
+
     def test_number_of_positions(self):
         # Create an instance of the GameMap
         game_map = GameMap()
@@ -22,4 +23,5 @@ class TestGameMap(TestCase):
 
         resultFalse = my_map.validate_postion(11, 11)
         self.assertFalse(resultFalse)
+
 

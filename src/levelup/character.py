@@ -1,25 +1,20 @@
-import re
+from levelup.position import Position
+from levelup.direction import Direction
+from levelup.gameMap import GameMap
 
-def is_valid_name(name):
-        # Check if the name contains only letters and is no more than 15 characters.
-        pattern = r"^[a-zA-Z]{1,15}$"
-        
-        return bool(re.match(pattern, name))
 class Character:
     name = ""
+    current_position :Position = Position(-100,-100)
+    map :GameMap = GameMap()
 
     def __init__(self, character_name):
-        if is_valid_name(character_name):
-            self.name = character_name
-        else:
-            self.name = ""
+        self.name = character_name
 
-        # # Test the function with some example names
-        # names = ["John", "Alice123", "Elizabeth Ann", "Bob_"]
-
-        # for name in names:
-        #     if is_valid_name(name):
-        #         print(f"{name} is a valid name.")
-        #     else:
-        #         print(f"{name} is not a valid name.")
+    def move(self, direction :Direction) -> None:
+        self.current_position = self.map.calculate_new_position(
+            self.current_position, direction)
+    
+    def enter_map(self, map :GameMap):
+        self.map = map
+        self.current_position = self.map.starting_position
 
