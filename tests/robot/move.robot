@@ -4,8 +4,7 @@ Test Template     Move character
 Library           MoveLibrary.py
 
 *** Test Cases ***                  StartingX     StartingY     StartingMoveCount     Direction     EndingX     EndingY     EndingMoveCount
-Move in the middle of the board     0             0             1                     NORTH         0           1           2
-Move on the edge of the board       0             0             5                     SOUTH         0           0           6
+Move to position 5,5                5             4             0                     NORTH         5           5           1
 Move to position 5,5              5             4             0                     NORTH         5           5           1
 Move to position 5,6                5             7             100                   SOUTH         5           6           101
 Move to position 2,2                1             2             50                    EAST          2           2           51

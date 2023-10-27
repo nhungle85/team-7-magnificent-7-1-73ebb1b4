@@ -20,6 +20,29 @@ class GameMap:
             temp_pos.append(y_range)
         self.positions = temp_pos
 
+    def is_position_valid(self, position :Position):
+        if position.x >= 0 and position.x < self.size[0] and position.y >= 0 and position.y < self.size[1]:
+            return True
+        else:
+            return False
+
+    def calculate_new_position(self, current_position: Position, direction: Direction) -> Position:
+        new_position = current_position
+        if direction == Direction.NORTH:
+            new_position = Position(current_position.x, current_position.y + 1)
+        elif direction == Direction.SOUTH:
+            new_position = Position(current_position.x, current_position.y - 1)
+        elif direction == Direction.EAST:
+            new_position = Position(current_position.x + 1, current_position.y)
+        elif direction == Direction.WEST:
+            new_position = Position(current_position.x - 1, current_position.y)
+        else:
+            pass
+        
+        if self.is_position_valid(new_position) == True:
+            return new_position
+        else:
+            return current_position
     
 
      
